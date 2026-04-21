@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Calculator App")
+st.title("Calculator App v1")
 
 if "history" not in st.session_state:
     st.session_state.history = []
