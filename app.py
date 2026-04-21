@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Calculator")
+st.title("Calculator App")
 
 col1, col2 = st.columns(2)
 with col1:
