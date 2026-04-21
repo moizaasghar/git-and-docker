@@ -23,4 +23,4 @@ if st.button("Calculate"):
             st.stop()
         result = num1 / num2
 
-
+    st.success(f"Result: {result}")
