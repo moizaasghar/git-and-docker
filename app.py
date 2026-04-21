@@ -2,6 +2,9 @@ import streamlit as st
 
 st.title("Calculator App")
 
+if "history" not in st.session_state:
+    st.session_state.history = []
+
 col1, col2 = st.columns(2)
 with col1:
     num1 = st.number_input("First number", value=0.0, format="%.2f")
@@ -24,3 +27,13 @@ if st.button("Calculate"):
         result = num1 / num2
 
     st.success(f"Result: {result}")
+    st.session_state.history.append(f"{num1} {operation} {num2} = {result}")
+
+if st.session_state.history:
+    st.divider()
+    st.subheader("History")
+    for entry in reversed(st.session_state.history):
+        st.write(entry)
+    if st.button("Clear History"):
+        st.session_state.history = []
+        st.rerun()
